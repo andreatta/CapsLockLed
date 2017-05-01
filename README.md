@@ -1,5 +1,5 @@
 # CapsLockLed
-A little program to control the CapsLock LED on my laptop keyboard.
+A little program to control the CapsLock LED on my laptop (DELL XPS 15 9560) keyboard.
 
 I like to have CapsLock mapped to Escape, since I use Escape way more than I ever use CapsLock.
 This is especially useful in vim to exit from `INSERT` mode.
@@ -35,7 +35,7 @@ Or just let the Makefile handle it.
 Default is to copy the compiled program to ~/bin. This is the folder where I keep my own compiled programs. You will have to adapt it to your likings.
 
 ```bash
-make install #builds p
+make install
 ```
 
 
