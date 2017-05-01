@@ -17,7 +17,7 @@ $ sudo chmod u+s capslockled
 ```
 
 The program can be called with
-`./capslockled 1` to turn LED on. Basically any other argument turns the LED off, but it would of course make sense to call it with `./capslockled 0`
+`capslockled 1` to turn LED on. Basically any other argument turns the LED off, but it would of course make sense to call it with `capslockled 0`
 
 On success the program returns `0` on failure `1`.
 
@@ -38,4 +38,10 @@ Default is to copy the compiled program to ~/bin. This is the folder where I kee
 make install
 ```
 
+## Add hook to vimrc
 
+```vimL
+" call a helper program to set CapsLock LED when in INSERT mode
+au InsertEnter * :silent ! capslockled 1
+au InsertLeave * :silent ! capslockled 0
+```
