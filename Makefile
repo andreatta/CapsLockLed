@@ -13,12 +13,17 @@ OBJ=$(SRC:.c=.o)
 all: $(SRC) $(APP)
 
 clean:
-	rm $(wildcard $(OBJ) $(APP))
+	@echo "Clean-up last build"
+	@rm -f $(wildcard $(OBJ) $(APP))
 
-install: all
-	sudo chown root $(APP)
-	sudo chmod u+s $(APP)
-	sudo cp $(APP) $(BINPATH)
+suid: all
+	@echo "Change owner to root and set SUID bit"
+	@sudo chown root $(APP)
+	@sudo chmod u+s $(APP)
+
+install: all suid
+	@echo "Copy binary to $(BINPATH)"
+	@sudo cp $(APP) $(BINPATH)
 
 $(APP): $(OBJ)
 	@echo "linking $(OBJ) to $@"
